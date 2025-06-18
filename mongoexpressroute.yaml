@@ -1,0 +1,14 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: mongoexpressroute
+  namespace: mongodbapp
+spec:
+  host: mongoexpressroute-mongodbapp.apps.primarycluster.juno.com
+  to:
+    kind: Service
+    name: mongo-express-service
+    weight: 100
+  port:
+    targetPort: 8081
+  wildcardPolicy: None
